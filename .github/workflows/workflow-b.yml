@@ -17,4 +17,3 @@ jobs:
       - name: Use Environment Variable
         run: |
           echo "Environment Variable from Workflow A: ${{ needs.workflow_a.outputs.my_variable }}"
-      # Your build steps here
