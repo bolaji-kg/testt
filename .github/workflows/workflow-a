@@ -1,0 +1,19 @@
+name: Workflow A
+
+on:
+  push:
+    branches:
+      - london
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      
+
+      - name: Trigger Workflow B
+        if: success()
+        uses: peter-evans/workflow-dispatch@v1
+        with:
+          workflow: Workflow B
