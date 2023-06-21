@@ -15,8 +15,4 @@ jobs:
          echo "out"
       
 
-      - name: Trigger Workflow B
-        if: success()
-        uses: peter-evans/workflow-dispatch@v1
-        with:
-          workflow: Workflow B
+      
