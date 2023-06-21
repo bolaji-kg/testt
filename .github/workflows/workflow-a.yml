@@ -22,9 +22,13 @@ jobs:
       - name: Set Environment Variable
         id: set_env_var
         run: |
-          echo "::set-output name=my_variable::$GIT_PR_SHORT"
-         
-         
+          echo "$GIT_PR_SHORT" > my_variable.txt
+          
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: my_variable.txt
       
 
       
