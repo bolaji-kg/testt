@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Trigger Workflow B
+        run: |
+         echo "out"
       
 
       - name: Trigger Workflow B
