@@ -14,6 +14,11 @@ jobs:
       - name: Check am
         run: |
          echo "it got to me"
-      - name: Use Environment Variable
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: my-artifact
+          
+      - name: Read Environment Variable
         run: |
-          echo "Environment Variable from Workflow A: ${{ needs.workflow_a.outputs.my_variable }}"
+          echo "Environment Variable from Workflow A: $(cat my_variable.txt)"
