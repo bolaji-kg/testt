@@ -13,6 +13,8 @@ jobs:
       - name: Trigger Workflow B
         run: |
          echo "out"
+         exit 1
+         
       
 
       
