@@ -38,7 +38,9 @@ jobs:
       - name: 'Unzip artifact'
         run: |
          unzip pr_number.zip
-         echo "pr_number"
+         ls
+         cat pr_number
+         
 
 
 #       - name: 'Comment on PR'
