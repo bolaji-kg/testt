@@ -21,12 +21,6 @@ jobs:
          echo $GIT_PR_SHORT > ./pr/pr_number
          echo "GIT SHA $GIT_PR_SHORT"
          
-#       - name: Save PR number
-#         env:
-#           PR_NUMBER: ${{ github.event.number }}
-#         run: |
-#           mkdir -p ./pr
-#           echo $PR_NUMBER > ./pr/pr_number
       - uses: actions/upload-artifact@v3
         with:
           name: pr_number
