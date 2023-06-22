@@ -11,7 +11,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Trigger Workflow B
         run: |
@@ -20,6 +20,12 @@ jobs:
          echo "GIT SHA $GIT_PR_SHORT"
          mkdir -p ./pr
          echo $GIT_PR_SHORT > ./pr/pr_number
+      - name: Save PR number
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+        run: |
+          mkdir -p ./pr
+          echo $PR_NUMBER > ./pr/pr_number
       - uses: actions/upload-artifact@v3
         with:
           name: pr_number
