@@ -18,8 +18,7 @@ jobs:
          echo "out"
          export GIT_PR_SHORT=${{ env.GIT_PR_SHORT }}
          echo "GIT SHA $GIT_PR_SHORT"
-         mkdir -p ./pr
-         echo $GIT_PR_SHORT > ./pr/pr_number
+         
       - name: Save PR number
         env:
           PR_NUMBER: ${{ github.event.number }}
