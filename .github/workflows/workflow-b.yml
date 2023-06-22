@@ -19,17 +19,17 @@ jobs:
         with:
           script: |
             let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
-               owner: bolaji-kg,
-               repo: testt,
-               run_id: workflow-a.yml,
+               owner: 'bolaji-kg',
+               repo: 'testt',
+               run_id: 'workflow-a.yml',
             });
             let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
               return artifact.name == "pr_number"
             })[0];
             let download = await github.rest.actions.downloadArtifact({
-               owner: bolaji-kg,
-               repo: testt,
-               artifact_id: pr_number,
+               owner: 'bolaji-kg',
+               repo: 'testt',
+               artifact_id: 'pr_number',
                archive_format: 'zip',
             });
             let fs = require('fs');
