@@ -5,6 +5,9 @@ on:
     workflows: ["Workflow A"]
     types:
       - completed
+env:
+  GIT_PR_SHA: ${GITHUB_SHA}
+
 jobs:
   build:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -40,6 +43,9 @@ jobs:
          unzip pr_number.zip
          ls
          cat pr_number
+         echo "out"
+         export GIT_PR_SHA=${{ env.GIT_PR_SHA }}
+         echo "$GIT_PR_SHA"
          
 
 
