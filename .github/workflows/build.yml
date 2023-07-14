@@ -1,7 +1,7 @@
 name: workflow_01
 on:
   push:
-    branches: [london, production]
+    branches: [london, prod]
 env:
   GIT_PR_SHA: ${GITHUB_SHA}
   GIT_PR_SHORT: ${GITHUB_SHA:0:10}
