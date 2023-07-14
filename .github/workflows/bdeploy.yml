@@ -7,7 +7,7 @@ env:
 jobs:
   Prod-Deploy:
     runs-on: ubuntu-latest
-    # if: ${{ github.ref_name  == 'london' && github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.ref_name  == 'prod'}}
     steps:
       - run: |
           echo "Triggering Wokflow b"
@@ -18,11 +18,12 @@ jobs:
         uses: actions/checkout@v3
   Staging-Deploy:
     runs-on: ubuntu-latest
-    # if: ${{ github.ref_name  == 'london' && github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.ref_name  == 'london'}}
     steps:
       - run: |
           echo "Triggering Wokflow b"
           export GIT_PR_SHORT=${{ env.GIT_PR_SHORT }}
           echo "GIT SHA $GIT_PR_SHORT"
+          echo "gitref ${{github.ref_name}}"
       - name: Checkout
         uses: actions/checkout@v3
