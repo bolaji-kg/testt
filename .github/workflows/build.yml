@@ -9,7 +9,7 @@ on:
 
       workflow2_github_account:
         description: 'GitHub Account Owner'
-        required: true
+        required: false 
         default: 'bolaji-kg'
 
       workflow2_repo_github:
