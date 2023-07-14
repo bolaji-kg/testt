@@ -2,22 +2,22 @@ name: workflow_01
 on:
   push:
     branches: [london, production]
-  workflow_dispatch:
-     inputs:
-      workflow_02:
-        description: 'ًWorkflow 2 which will be triggered'
-        required: false
-        default: 'workflow_02'
+#   workflow_dispatch:
+#      inputs:
+#       workflow_02:
+#         description: 'ًWorkflow 2 which will be triggered'
+#         required: false
+#         default: 'workflow_02'
 
-      workflow2_github_account:
-        description: 'GitHub Account Owner'
-        required: false 
-        default: 'bolaji-kg'
+#       workflow2_github_account:
+#         description: 'GitHub Account Owner'
+#         required: false 
+#         default: 'bolaji-kg'
 
-      workflow2_repo_github:
-        description: 'repo-name'
-        required: false
-        default: 'testt' 
+#       workflow2_repo_github:
+#         description: 'repo-name'
+#         required: false
+#         default: 'testt' 
 
 jobs:
   build:
