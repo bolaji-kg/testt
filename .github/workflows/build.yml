@@ -1,10 +1,12 @@
 name: workflow_01
 on:
+  push:
+    branches: [london, production]
   workflow_dispatch:
      inputs:
       workflow_02:
         description: 'ًWorkflow 2 which will be triggered'
-        required: true
+        required: false
         default: 'workflow_02'
 
       workflow2_github_account:
@@ -14,7 +16,7 @@ on:
 
       workflow2_repo_github:
         description: 'repo-name'
-        required: true
+        required: false
         default: 'testt' 
 
 jobs:
