@@ -18,6 +18,6 @@ jobs:
             owner: 'bolaji-kg',
             repo: 'testt',
             workflow_id: 'bdeploy.yml',
-            ref: 'london'
+            ref: 'prod'
           })
           
