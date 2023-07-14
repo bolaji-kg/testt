@@ -1,10 +1,16 @@
 name: workflow_02
 on: [repository_dispatch]
+env:
+  GIT_PR_SHA: ${GITHUB_SHA}
+  GIT_PR_SHORT: ${GITHUB_SHA:0:10}
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Triggering Wokflow 2"
+      - run: |
+          echo "Triggering Wokflow 2"
+          export GIT_PR_SHORT=${{ env.GIT_PR_SHORT }}
+          echo "GIT SHA $GIT_PR_SHORT"
       - name: Checkout
         uses: actions/checkout@v3
         
