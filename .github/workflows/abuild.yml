@@ -8,8 +8,20 @@ jobs:
   Dispatcher:
     runs-on: ubuntu-latest
     steps:
-    - name: Dispatch to Sellers and Admcms
-#     if: github.ref_name  == 'staging'
+    - name: Dispatch to Deploy london
+      if: github.ref_name  == 'london'
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.ACTIONS_KEY }}
+        script: |
+          await github.rest.actions.createWorkflowDispatch({
+            owner: 'bolaji-kg',
+            repo: 'testt',
+            workflow_id: 'bdeploy.yml',
+            ref: 'london'
+          })
+    - name: Dispatch to Deploy prod
+      if: github.ref_name  == 'prod'
       uses: actions/github-script@v6
       with:
         github-token: ${{ secrets.ACTIONS_KEY }}
@@ -20,4 +32,3 @@ jobs:
             workflow_id: 'bdeploy.yml',
             ref: 'prod'
           })
-          
