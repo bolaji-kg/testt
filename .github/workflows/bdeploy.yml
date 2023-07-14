@@ -10,7 +10,7 @@ jobs:
     # if: ${{ github.ref_name  == 'london' && github.event.workflow_run.conclusion == 'success' }}
     steps:
       - run: |
-          echo "Triggering Wokflow 2"
+          echo "Triggering Wokflow b"
           export GIT_PR_SHORT=${{ env.GIT_PR_SHORT }}
           echo "GIT SHA $GIT_PR_SHORT"
       - name: Checkout
