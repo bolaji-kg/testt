@@ -1,11 +1,13 @@
-name: wo
-on: [repository_dispatch]
+name: bdeploy
+on:
+ workflow_dispatch:
 env:
   GIT_PR_SHA: ${GITHUB_SHA}
   GIT_PR_SHORT: ${GITHUB_SHA:0:10}
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    if: ${{ github.ref_name  == 'london' && github.event.workflow_run.conclusion == 'success' }}
     steps:
       - run: |
           echo "Triggering Wokflow 2"
@@ -13,14 +15,3 @@ jobs:
           echo "GIT SHA $GIT_PR_SHORT"
       - name: Checkout
         uses: actions/checkout@v3
-
-
-jobs:
-  build:
-    if: ${{ github.ref_name  == 'london' && github.event.workflow_run.conclusion == 'success' }}
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check am
-        run: |
-         echo "it got to me"
