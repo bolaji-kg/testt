@@ -7,7 +7,7 @@ env:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    if: ${{ github.ref_name  == 'london' && github.event.workflow_run.conclusion == 'success' }}
+    # if: ${{ github.ref_name  == 'london' && github.event.workflow_run.conclusion == 'success' }}
     steps:
       - run: |
           echo "Triggering Wokflow 2"
