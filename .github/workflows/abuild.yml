@@ -1,0 +1,23 @@
+name: abuild
+on:
+  push:
+    branches: [ london, prod ]
+
+  workflow_dispatch:
+jobs:
+  Dispatcher:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dispatch to Sellers and Admcms
+#     if: github.ref_name  == 'staging'
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.ACTIONS_KEY }}
+        script: |
+          await github.rest.actions.createWorkflowDispatch({
+            owner: 'bolaji-kg',
+            repo: 'testt',
+            workflow_id: 'bdeploy.yml',
+            ref: 'prod'
+          })
+          
