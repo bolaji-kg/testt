@@ -1,0 +1,41 @@
+name: workflow_01
+on:
+  push:
+    branches: [london, production]
+env:
+  GIT_PR_SHA: ${GITHUB_SHA}
+  GIT_PR_SHORT: ${GITHUB_SHA:0:10}
+#   workflow_dispatch:
+#      inputs:
+#       workflow_02:
+#         description: 'ًWorkflow 2 which will be triggered'
+#         required: false
+#         default: 'workflow_02'
+
+#       workflow2_github_account:
+#         description: 'GitHub Account Owner'
+#         required: false 
+#         default: 'bolaji-kg'
+
+#       workflow2_repo_github:
+#         description: 'repo-name'
+#         required: false
+#         default: 'testt' 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Test
+        run: |
+          curl -X POST https://api.github.com/repos/bolaji-kg/testt/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.ACTIONS_KEY }} \
+          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+         
+          export GIT_PR_SHORT=${{ env.GIT_PR_SHORT }}
+          echo "GIT SHA $GIT_PR_SHORT"
+     
+      - uses: actions/checkout@v3
