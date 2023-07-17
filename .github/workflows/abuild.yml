@@ -2,7 +2,6 @@ name: abuild
 on:
   push:
     branches: [ london, prod ]
-
   workflow_dispatch:
 jobs:
   Dispatcher:
