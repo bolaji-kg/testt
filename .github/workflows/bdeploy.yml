@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: Run code based on input value
         run: |
-          if [ "${{ github.event.inputs.input_value }}" == "ccommons-dispatch" ]; then
+          if [ "${{ github.event.inputs.input_value }}" == "commons-dispatch" ]; then
             echo "This is the code for workflow C when the input value is 'commons'"
           else
             echo "This is the code for workflow C when the input value is 'regular'"
