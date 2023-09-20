@@ -1,6 +1,11 @@
 name: bdeploy
 on:
  workflow_dispatch:
+  inputs:
+    input_type:
+      description: commons trigger
+      type: string
+
 env:
   GIT_PR_SHA: ${GITHUB_SHA}
   GIT_PR_SHORT: ${GITHUB_SHA:0:10}
