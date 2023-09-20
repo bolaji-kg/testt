@@ -18,6 +18,8 @@ jobs:
             repo: 'testt',
             workflow_id: 'bdeploy.yml',
             ref: 'london'
+            inputs: {
+              custom_event_type: 'your_custom_event_type'}
           })
     - name: Dispatch to Deploy prod
       if: github.ref_name  == 'prod'
