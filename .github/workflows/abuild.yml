@@ -19,7 +19,7 @@ jobs:
             workflow_id: 'bdeploy.yml',
             ref: 'london',
             inputs: {
-              custom_event_type: 'commons-dispatch'}
+              input_type: 'commons-dispatch'}
           })
     - name: Dispatch to Deploy prod
       if: github.ref_name  == 'prod'
