@@ -29,7 +29,9 @@ jobs:
       - name: Run code based on input value
         run: |
           echo " type ${{ github.event.inputs.input_type }}"
-          if [ "${{ github.event.inputs.input_value }}" == "commons-dispatch" ]; then
+          echo " type ${{ github.event.inputs.input_type }}"
+          
+          if [ "${{ github.event.inputs.input_type }}" == "commons-dispatch" ]; then
             echo "This is the code for workflow C when the input value is 'commons'"
           else
             echo "This is the code for workflow C when the input value is 'regular'"
