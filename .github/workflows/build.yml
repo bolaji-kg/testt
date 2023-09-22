@@ -30,7 +30,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Test
         run: |
-          git ls-remote https://${{secrets.GH_PAT}}@github.com/bolaji-kg/Frontend-debug.git HEAD
+          git ls-remote https://${{secrets.GH_PAT}}@github.com/bolaji-kg/Frontend-debug.git  HEAD | awk '{ print $1}'
           # curl -X POST https://api.github.com/repos/bolaji-kg/testt/dispatches \
           # -H 'Accept: application/vnd.github.everest-preview+json' \
           # -u ${{ secrets.ACTIONS_KEY }} \
